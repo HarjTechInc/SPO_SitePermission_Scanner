@@ -17,9 +17,9 @@ The script uses **PnP.PowerShell** (Microsoft’s recommended cmdlets for ShareP
 ## How It Works
 * The script prompts for a **SiteUrl** parameter, which should be the full URL of the SharePoint Online site (e.g., `https://contoso.sharepoint.com/sites/ProjectX`).
 * It connects to the site using `Connect-PnPOnline` with interactive login.
-* It retrieves all document libraries (base template 101) and iterates through every item in each library.  Items are differentiated by the `FileSystemObjectType` property; value `0` indicates a file and `1` indicates a folder【879391428515485†L318-L320】.
+* It retrieves all document libraries (base template 101) and iterates through every item in each library.  Items are differentiated by the `FileSystemObjectType` property; value `0` indicates a file and `1` indicates a folder.
 * For each item the script records:
-  - **UniquePermissions:** whether `HasUniqueRoleAssignments` is `true` (broken inheritance)【879391428515485†L318-L320】.  
+  - **UniquePermissions:** whether `HasUniqueRoleAssignments` is `true` (broken inheritance).  
   - **ExposedToEveryone:** whether any role assignment includes a member whose title contains “Everyone”.  
   - **FileType:** the file extension for files (e.g., docx, pdf), used to build a file‑type distribution.
 * Counts of files, folders, unique permissions and file types are aggregated, and libraries that still inherit permissions (i.e., `HasUniqueRoleAssignments` is `false`) are listed.
